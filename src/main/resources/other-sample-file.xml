@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <nodeB id="node1">So more nodes</nodeB>
+    <nodeB id="node2">Adn even mode nodes</nodeB>
+    <nodeA id="otherId" title="So this is some node">
+        <nodeRef src="sample-file.xml" id="node5">That goes to another file</nodeRef>
+        <nodeB id="node6" title="But also stays in this one">
+            <nodeA id="node7">What a miracle</nodeA>
+        </nodeB>
+    </nodeA>
+</root>

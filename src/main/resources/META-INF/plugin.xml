@@ -7,12 +7,8 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.septagrammer.testplugin.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.septagrammer.testplugin.services.MyProjectService"/>
+        <toolWindow id="XML"
+                    factoryClass="com.github.septagrammer.testplugin.main.TestToolWindowFactory"
+                    anchor="right" />
     </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.septagrammer.testplugin.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
 </idea-plugin>

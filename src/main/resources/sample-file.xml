@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <nodeA id="node1">That is a simple node</nodeA>
+    <nodeB id="node2">That is another simple node</nodeB>
+    <nodeA id="node3" title="Not so simple node">
+        <nodeB id="node5">So a child node</nodeB>
+        <nodeA id="node1" title="Some child with other children">
+            <nodeA id="node1">Just a child node</nodeA>
+            <nodeB id="node2">Some other child node</nodeB>
+        </nodeA>
+    </nodeA>
+    <nodeA id="node1">That is a simple node with dupe id</nodeA>
+    <nodeRef src="other-sample-file.xml" id="otherId"/>
+    <nodeB id="node4">That is yet another simple node</nodeB>
+</root>

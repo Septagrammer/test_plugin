@@ -23,6 +23,9 @@ version = properties("pluginVersion")
 repositories {
     mavenCentral()
 }
+dependencies {
+    implementation("com.fasterxml:jackson-xml-databind:0.6.2")
+}
 
 // Configure Gradle IntelliJ Plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
 intellij {
