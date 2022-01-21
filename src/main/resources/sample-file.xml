@@ -13,3 +13,4 @@
     <nodeRef src="other-sample-file.xml" id="otherId"/>
     <nodeB id="node4">That is yet another simple node</nodeB>
 </root>
+

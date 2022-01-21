@@ -1,5 +1,5 @@
 package com.github.septagrammer.testplugin.model
 
-interface Root {
+interface ChildOwner {
     fun getChildren(): List<Node>
 }

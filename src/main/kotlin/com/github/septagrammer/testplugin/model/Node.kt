@@ -1,11 +1,5 @@
 package com.github.septagrammer.testplugin.model
 
-interface Node {
-    fun getChildren(): List<Node>
-
+interface Node: ChildOwner {
     val id: String
-
-    val title: String?
-
-    val value: String?
 }
