@@ -1,6 +1,5 @@
 package com.github.septagrammer.testplugin.utils
 
-import com.github.septagrammer.testplugin.NodeCreationContentHandler
 import com.intellij.ui.treeStructure.Tree
 import org.xml.sax.InputSource
 import org.xml.sax.XMLReader

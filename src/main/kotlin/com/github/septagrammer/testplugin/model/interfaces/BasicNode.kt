@@ -1,4 +1,4 @@
-package com.github.septagrammer.testplugin.model
+package com.github.septagrammer.testplugin.model.interfaces
 
 interface BasicNode {
     val id: String?

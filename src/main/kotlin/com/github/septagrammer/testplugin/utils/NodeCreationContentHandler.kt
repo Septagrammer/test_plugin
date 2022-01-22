@@ -1,11 +1,9 @@
-package com.github.septagrammer.testplugin
+package com.github.septagrammer.testplugin.utils
 
-import com.github.septagrammer.testplugin.model.AbstractNode
-import com.github.septagrammer.testplugin.model.BasicNode
-import com.github.septagrammer.testplugin.model.Tags.*
-import com.github.septagrammer.testplugin.modelimplementation.BasicNodeImpl
-import com.github.septagrammer.testplugin.modelimplementation.RootNodeImpl
-import com.github.septagrammer.testplugin.utils.NodeFactory
+import com.github.septagrammer.testplugin.model.interfaces.AbstractNode
+import com.github.septagrammer.testplugin.model.interfaces.BasicNode
+import com.github.septagrammer.testplugin.model.implementation.BasicNodeImpl
+import com.github.septagrammer.testplugin.model.implementation.RootNodeImpl
 import org.xml.sax.Attributes
 import org.xml.sax.SAXException
 import org.xml.sax.helpers.DefaultHandler

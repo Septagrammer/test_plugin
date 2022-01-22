@@ -1,24 +1,24 @@
 package com.github.septagrammer.testplugin.utils
 
-import com.github.septagrammer.testplugin.model.AbstractNode
-import com.github.septagrammer.testplugin.model.Tags
-import com.github.septagrammer.testplugin.modelimplementation.BasicNodeImpl
-import com.github.septagrammer.testplugin.modelimplementation.NodeRefImpl
-import com.github.septagrammer.testplugin.modelimplementation.RootNodeImpl
+import com.github.septagrammer.testplugin.model.interfaces.AbstractNode
+import com.github.septagrammer.testplugin.model.interfaces.Tags
+import com.github.septagrammer.testplugin.model.implementation.BasicNodeImpl
+import com.github.septagrammer.testplugin.model.implementation.NodeRefImpl
+import com.github.septagrammer.testplugin.model.implementation.RootNodeImpl
 import org.xml.sax.Attributes
 
 object NodeFactory {
     fun createNode(tag: String, attributes: Attributes?): AbstractNode {
         return when (tag) {
-            Tags.ROOT.tagName -> createRoot()
-            Tags.NODEREF.tagName -> createBasicNode(Tags.NODEREF, attributes)
+            Tags.ROOT.tagName -> createRootNode()
+            Tags.NODEREF.tagName -> createNodeRef(Tags.NODEREF, attributes)
             Tags.NODEA.tagName -> createBasicNode(Tags.NODEA, attributes)
             Tags.NODEB.tagName -> createBasicNode(Tags.NODEB, attributes)
-            else -> createRoot()//todo
+            else -> createRootNode()//todo
         }
     }
 
-    private fun createRoot(): AbstractNode {
+    private fun createRootNode(): AbstractNode {
         val node = RootNodeImpl()
         node.tag = Tags.ROOT
         return node
