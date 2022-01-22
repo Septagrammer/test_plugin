@@ -9,8 +9,6 @@ abstract class AbstractNode: TreeNode {
     var parent: AbstractNode? = null
     var tag: Tags = Tags.NODEREF
 
-    //abstract fun addChild(child: AbstractNode)
-
     fun addChild(child: AbstractNode) {
         child.parent = this
         children!!.add(child)
@@ -18,6 +16,10 @@ abstract class AbstractNode: TreeNode {
 
     override fun getChildAt(childIndex: Int): TreeNode {
         return children!![childIndex]
+    }
+
+    fun setChildAt(childIndex: Int, child: AbstractNode){
+        children?.set(childIndex, child)
     }
 
     override fun getChildCount(): Int {

@@ -22,7 +22,7 @@ class NodeCreationContentHandler: DefaultHandler() {
     @Throws(SAXException::class)
     override fun startElement(uri: String?, localName: String?, qName: String, attributes: Attributes?) {
         val item = NodeFactory.createNode(qName, attributes)
-        this.item?.addChild(item)////
+        item?.let { this.item?.addChild(it) }
         this.item = item
     }
 
@@ -31,8 +31,6 @@ class NodeCreationContentHandler: DefaultHandler() {
         val s = String(ch!!, start, length).trim { it <= ' ' }
         if (item is BasicNode){
             (item as BasicNodeImpl).value = s
-        } else if (!s.isEmpty()) {
-            //item!!.addChild(TreeItem(s))
         }
     }
 }
