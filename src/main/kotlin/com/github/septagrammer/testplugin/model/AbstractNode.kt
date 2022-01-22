@@ -1,22 +1,20 @@
-package com.github.septagrammer.testplugin
+package com.github.septagrammer.testplugin.model
 
+import com.github.septagrammer.testplugin.modelimplementation.BasicNodeImpl
 import java.util.*
 import javax.swing.tree.TreeNode
 import kotlin.collections.ArrayList
 
-class TreeItem<String>(var tag: String): TreeNode {
-    var parent: TreeItem<String>? = null
-    var value: String? = null
-    var id: String? = null
-    var title: String? = null
-    private val myChildren: MutableList<TreeItem<String>> = ArrayList()
+abstract class AbstractNode: TreeNode {
+    var children: MutableList<AbstractNode>? = ArrayList()
+    var parent: AbstractNode? = null
+    var tag:Tags = Tags.NODEREF
 
-    val children: List<TreeItem<String>>
-        get() = myChildren
+    //abstract fun addChild(child: AbstractNode)
 
-    fun addChild(child: TreeItem<String>) {
+    fun addChild(child: AbstractNode) {
         child.parent = this
-        myChildren.add(child)
+        children!!.add(child)
     }
 
     override fun getChildAt(childIndex: Int): TreeNode {

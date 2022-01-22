@@ -1,4 +1,4 @@
-package com.github.septagrammer.testplugin
+package com.github.septagrammer.testplugin.utils
 
 class DataLoader {
    fun load(filename: String): String? {

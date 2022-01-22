@@ -1,6 +1,6 @@
 package com.github.septagrammer.testplugin
 
-import com.github.septagrammer.testplugin.Tags.*
+import com.github.septagrammer.testplugin.model.Tags.*
 import org.xml.sax.Attributes
 import org.xml.sax.SAXException
 import org.xml.sax.helpers.DefaultHandler
@@ -26,17 +26,15 @@ class TreeItemCreationContentHandler: DefaultHandler() {
         val item = TreeItem(qName)
         this.item.addChild(item)
         this.item = item
-        if (qName.equals(NODEA.tagName)){
+        if (qName == NODEA.tagName){
             nodeA = true
             item.id = attributes?.getValue("id")
             item.title = attributes?.getValue("title")
-        } else if (qName.equals(NODEB.tagName)){
+        } else if (qName == NODEB.tagName){
             nodeB = true
             item.id = attributes?.getValue("id")
             item.title = attributes?.getValue("title")
         }
-
-
     }
 
     @Throws(SAXException::class)
@@ -52,6 +50,4 @@ class TreeItemCreationContentHandler: DefaultHandler() {
             item.addChild(TreeItem(s))
         }
     }
-
-
 }

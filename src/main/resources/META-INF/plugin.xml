@@ -8,7 +8,7 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow id="XML"
-                    factoryClass="com.github.septagrammer.testplugin.main.TestToolWindowFactory"
+                    factoryClass="com.github.septagrammer.testplugin.ui.TestToolWindowFactory"
                     anchor="right" />
     </extensions>
 </idea-plugin>
