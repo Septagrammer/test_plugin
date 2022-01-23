@@ -1,5 +1,6 @@
 package com.github.septagrammer.testplugin.model.interfaces
 
+import com.github.septagrammer.testplugin.utils.Tags
 import java.util.*
 import javax.swing.tree.TreeNode
 import kotlin.collections.ArrayList
@@ -7,7 +8,7 @@ import kotlin.collections.ArrayList
 abstract class AbstractNode: TreeNode {
     var children: MutableList<AbstractNode>? = ArrayList()
     var parent: AbstractNode? = null
-    var tag: Tags = Tags.NODEREF
+    var tag: Tags? = null
 
     fun addChild(child: AbstractNode) {
         child.parent = this

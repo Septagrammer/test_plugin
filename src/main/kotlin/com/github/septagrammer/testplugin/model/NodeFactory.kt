@@ -1,39 +1,33 @@
-package com.github.septagrammer.testplugin.utils
+package com.github.septagrammer.testplugin.model
 
 import com.github.septagrammer.testplugin.model.interfaces.AbstractNode
-import com.github.septagrammer.testplugin.model.interfaces.Tags
 import com.github.septagrammer.testplugin.model.implementation.BasicNodeImpl
 import com.github.septagrammer.testplugin.model.implementation.NodeRefImpl
 import com.github.septagrammer.testplugin.model.implementation.RootNodeImpl
-import com.github.septagrammer.testplugin.model.interfaces.BasicNode
-import com.github.septagrammer.testplugin.utils.data.DataLoader
-import com.github.septagrammer.testplugin.utils.data.DataParser
-import org.jetbrains.builtInWebServer.findIndexFile
+import com.github.septagrammer.testplugin.utils.Tags
 import org.xml.sax.Attributes
-import java.io.ByteArrayInputStream
-import java.io.InputStream
-import java.util.*
 
 object NodeFactory {
     fun createNode(tag: String, attributes: Attributes?): AbstractNode? {
         return when (tag) {
             Tags.ROOT.tagName -> createRootNode()
-            Tags.NODEREF.tagName -> createNodeRef(Tags.NODEREF, attributes)
+            Tags.NODEREF.tagName -> createNodeRef(attributes)
             Tags.NODEA.tagName -> createBasicNode(Tags.NODEA, attributes)
             Tags.NODEB.tagName -> createBasicNode(Tags.NODEB, attributes)
-            else -> createRootNode()//todo
+            else -> null
         }
     }
 
     private fun createRootNode(): AbstractNode {
         val node = RootNodeImpl()
         node.tag = Tags.ROOT
+
         return node
     }
 
-    private fun createBasicNode(tag: Tags, attributes: Attributes?): AbstractNode? {
+    private fun createBasicNode(tag: Tags, attributes: Attributes?): AbstractNode {
         val id: String? = attributes?.getValue("id")
-        val node: BasicNodeImpl = BasicNodeImpl()
+        val node = BasicNodeImpl()
         node.id = id
         node.title = attributes?.getValue("title")
         node.tag = tag
@@ -41,11 +35,12 @@ object NodeFactory {
         return node
     }
 
-    private fun createNodeRef(tag: Tags, attributes: Attributes?): AbstractNode {
-        val node: NodeRefImpl = NodeRefImpl()
+    private fun createNodeRef(attributes: Attributes?): AbstractNode {
+        val node = NodeRefImpl()
         node.id = attributes?.getValue("id")
         node.src = attributes?.getValue("src")
-        node.tag = tag
+        node.tag = Tags.NODEREF
+
         return node
     }
 }

@@ -33,17 +33,17 @@ class Resolver() {
     }
 
     private fun find(id: String, refSource: AbstractNode): BasicNodeImpl? {
-        var res: BasicNodeImpl? = null
+        var result: BasicNodeImpl? = null
         refSource.children?.forEach {
             if (it is BasicNodeImpl && it.id == id) {
-                res = it
+                result = it
             }
-            val temp = find(id, it)
-            if (temp != null) {
-                res = temp
+            val tempResult = find(id, it)
+            if (tempResult != null) {
+                result = tempResult
             }
-
         }
-        return res
+
+        return result
     }
 }

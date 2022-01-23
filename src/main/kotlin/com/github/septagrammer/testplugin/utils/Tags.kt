@@ -1,4 +1,4 @@
-package com.github.septagrammer.testplugin.model.interfaces
+package com.github.septagrammer.testplugin.utils
 
 enum class Tags(val tagName: String) {
     ROOT ("root"),
