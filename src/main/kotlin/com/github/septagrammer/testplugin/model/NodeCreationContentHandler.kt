@@ -10,20 +10,20 @@ import org.xml.sax.helpers.DefaultHandler
 
 class NodeCreationContentHandler: DefaultHandler() {
 
-    var node: AbstractNode? = RootNodeImpl()
+    var node: AbstractNode? = null
 
     @Throws(SAXException::class)
     override fun endElement(uri: String?, localName: String?, qName: String?) {
-        if (qName == node?.tag?.tagName){
+        if (qName == node?.tag?.tagName && node !is RootNodeImpl){
             node = node?.parent
         }
     }
 
     @Throws(SAXException::class)
     override fun startElement(uri: String?, localName: String?, qName: String, attributes: Attributes?) {
-        val item = NodeFactory.createNode(qName, attributes)
-        item?.let { this.node?.addChild(it) }
-        this.node = item
+        val node = NodeFactory.createNode(qName, attributes)
+        node?.let { this.node?.addChild(it) }
+        this.node = node
     }
 
     @Throws(SAXException::class)
