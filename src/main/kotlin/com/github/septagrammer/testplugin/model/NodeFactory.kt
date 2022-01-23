@@ -19,28 +19,16 @@ object NodeFactory {
     }
 
     private fun createRootNode(): AbstractNode {
-        val node = RootNodeImpl()
-        node.tag = Tags.ROOT
-
-        return node
+        return RootNodeImpl()
     }
 
     private fun createBasicNode(tag: Tags, attributes: Attributes?): AbstractNode {
         val id: String? = attributes?.getValue("id")
-        val node = BasicNodeImpl()
-        node.id = id
-        node.title = attributes?.getValue("title")
-        node.tag = tag
 
-        return node
+        return BasicNodeImpl(id, attributes?.getValue("title"), tag)
     }
 
     private fun createNodeRef(attributes: Attributes?): AbstractNode {
-        val node = NodeRefImpl()
-        node.id = attributes?.getValue("id")
-        node.src = attributes?.getValue("src")
-        node.tag = Tags.NODEREF
-
-        return node
+        return NodeRefImpl(attributes?.getValue("src"), attributes?.getValue("id"))
     }
 }
