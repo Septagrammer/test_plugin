@@ -1,12 +1,11 @@
-package com.github.septagrammer.testplugin.utils.data
+package com.github.septagrammer.xml.utils.data
 
-import com.github.septagrammer.testplugin.model.interfaces.AbstractNode
-import com.github.septagrammer.testplugin.model.NodeFactory
-import com.github.septagrammer.testplugin.model.implementation.BasicNodeImpl
-import com.github.septagrammer.testplugin.model.implementation.NodeRefImpl
-import com.github.septagrammer.testplugin.model.implementation.RootNodeImpl
-import com.github.septagrammer.testplugin.model.interfaces.BasicNode
-import com.jetbrains.rd.util.addUnique
+import com.github.septagrammer.xml.model.interfaces.AbstractNode
+import com.github.septagrammer.xml.model.NodeFactory
+import com.github.septagrammer.xml.model.implementation.BasicNodeImpl
+import com.github.septagrammer.xml.model.implementation.NodeRefImpl
+import com.github.septagrammer.xml.model.implementation.RootNodeImpl
+import com.github.septagrammer.xml.model.interfaces.BasicNode
 import org.xml.sax.Attributes
 import org.xml.sax.InputSource
 import org.xml.sax.SAXException
@@ -62,7 +61,7 @@ class DataParser {
 
         private val cache = mutableMapOf<Pair<String, String>, BasicNodeImpl?>()
 
-        fun resolve(root: AbstractNode, src: String): AbstractNode? {
+        fun resolve(root: AbstractNode, src: String): AbstractNode {
             for (i in 0 until root.childCount) {
                 var current = root.getChildAt(i)
                 if (current is NodeRefImpl) {
@@ -83,7 +82,7 @@ class DataParser {
         private fun resolveRef(node: NodeRefImpl): BasicNodeImpl? {
             val id: String = node.id ?: return null
             val src: String = node.src ?: return null
-            var key = Pair(src, id)
+            val key = Pair(src, id)
             if (!cache.containsKey(key)){
                 val refSource = parser.parse(src) ?: return null
                 val res = find(id, refSource)

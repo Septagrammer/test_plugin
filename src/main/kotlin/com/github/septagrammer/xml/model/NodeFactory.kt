@@ -1,10 +1,10 @@
-package com.github.septagrammer.testplugin.model
+package com.github.septagrammer.xml.model
 
-import com.github.septagrammer.testplugin.model.interfaces.AbstractNode
-import com.github.septagrammer.testplugin.model.implementation.BasicNodeImpl
-import com.github.septagrammer.testplugin.model.implementation.NodeRefImpl
-import com.github.septagrammer.testplugin.model.implementation.RootNodeImpl
-import com.github.septagrammer.testplugin.utils.Tags
+import com.github.septagrammer.xml.model.interfaces.AbstractNode
+import com.github.septagrammer.xml.model.implementation.BasicNodeImpl
+import com.github.septagrammer.xml.model.implementation.NodeRefImpl
+import com.github.septagrammer.xml.model.implementation.RootNodeImpl
+import com.github.septagrammer.xml.utils.Tags
 import org.xml.sax.Attributes
 
 object NodeFactory {

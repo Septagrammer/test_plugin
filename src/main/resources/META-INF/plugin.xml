@@ -1,13 +1,13 @@
 <idea-plugin>
-    <id>com.github.septagrammer.testplugin</id>
-    <name>xml_plugin</name>
+    <id>com.github.septagrammer.xml</id>
+    <name>xml</name>
     <vendor email="novuyakk@gmail.com">Pavlo Skliar</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow id="XML"
-                    factoryClass="com.github.septagrammer.testplugin.ui.TestToolWindowFactory"
+                    factoryClass="com.github.septagrammer.xml.ui.TestToolWindowFactory"
                     anchor="right" />
     </extensions>
 </idea-plugin>

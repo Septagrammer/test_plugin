@@ -1,6 +1,6 @@
-package com.github.septagrammer.testplugin.model.interfaces
+package com.github.septagrammer.xml.model.interfaces
 
-import com.github.septagrammer.testplugin.utils.Tags
+import com.github.septagrammer.xml.utils.Tags
 import java.util.*
 import javax.swing.tree.TreeNode
 import kotlin.collections.ArrayList

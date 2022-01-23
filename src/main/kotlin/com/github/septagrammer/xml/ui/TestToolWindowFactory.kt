@@ -1,4 +1,4 @@
-package com.github.septagrammer.testplugin.ui
+package com.github.septagrammer.xml.ui
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.ToolWindow

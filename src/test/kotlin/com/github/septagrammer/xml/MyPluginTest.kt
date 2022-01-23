@@ -1,4 +1,4 @@
-package com.github.septagrammer.testplugin
+package com.github.septagrammer.xml
 
 import com.intellij.ide.highlighter.XmlFileType
 import com.intellij.psi.xml.XmlFile
