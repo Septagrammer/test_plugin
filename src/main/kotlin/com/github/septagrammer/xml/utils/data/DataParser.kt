@@ -89,7 +89,8 @@ class DataParser {
                 if (res != null){
                     cache[key] = res
                 }
-                return find(id, refSource)
+
+                return res
             } else {
                 return cache[key]
             }
